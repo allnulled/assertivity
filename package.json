@@ -1,0 +1,38 @@
+{
+  "name": "assertivity",
+  "version": "1.0.0",
+  "description": "Natural approach to JavaScript asserting and testing.",
+  "main": "assertivity.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "docs": "javadoc2json -i 'src/**/*.js' -o docs/docs.json",
+    "test": "rimraf coverage .nyc_output && node_modules/.bin/nyc --reporter=html node test/assertivity.spec.js",
+    "clean": "rimraf coverage .nyc_output docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "javadoc2json": "^1.0.6",
+    "nyc": "^11.7.1",
+    "rimraf": "^2.6.2"
+  },
+  "bin": {
+    "assertivity": "assertivity.cli.js"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allnulled/assertivity.git"
+  },
+  "keywords": [
+    "test",
+    "assert",
+    "natural"
+  ],
+  "bugs": {
+    "url": "https://github.com/allnulled/assertivity/issues"
+  },
+  "homepage": "https://github.com/allnulled/assertivity#readme"
+}
