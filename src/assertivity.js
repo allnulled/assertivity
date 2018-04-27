@@ -64,7 +64,6 @@ function AssertivityTester(paramSettings = {}) {
 			Assertivity._.report.label = undefined;
 			console.log(logging);
 		}
-
 		if (Assertivity._.report.main || Assertivity._.report.temp) {
 			if (settings.tree) {
 				var selector = [].concat(Assertivity._.report.main || []).concat(Assertivity._.report.temp || []);
@@ -79,7 +78,7 @@ function AssertivityTester(paramSettings = {}) {
 						if (!(val[key].$)) {
 							val[key].$ = [];
 						}
-						var ref = Assertivity._.reference.get();
+						var ref = $;
 						var item = {
 							$expr: expression.replace(/\./g, " "),
 							$value: result,
@@ -111,7 +110,7 @@ function AssertivityTester(paramSettings = {}) {
 				if (!(selectorStr in Assertivity._.report.data)) {
 					Assertivity._.report.data[selectorStr] = [];
 				}
-				var ref = Assertivity._.reference.get();
+				var ref = $;
 				var item = {
 					$expr: expression.replace(/\./g, " "),
 					$value: result,
@@ -139,7 +138,11 @@ function AssertivityTester(paramSettings = {}) {
 	};
 	var generateAssertions = function(callback = defaultCallback) {
 		var it = function(a) {
-			Assertivity._.reference.main = a;
+			var args = Array.prototype.slice.call(arguments);
+			Assertivity._.reference.main = args.shift();
+			if(args.length !== 0) {
+				Assertivity._.reference.temp = args;
+			}
 			return it;
 		};
 		var its = function() {
