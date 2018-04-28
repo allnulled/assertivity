@@ -1,6 +1,6 @@
 {
   "name": "assertivity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Natural approach to JavaScript asserting and testing.",
   "main": "assertivity.js",
   "directories": {
@@ -18,9 +18,7 @@
     "nyc": "^11.7.1",
     "rimraf": "^2.6.2"
   },
-  "bin": {
-    
-  },
+  "bin": {},
   "dependencies": {},
   "repository": {
     "type": "git",
