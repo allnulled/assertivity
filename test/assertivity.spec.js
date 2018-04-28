@@ -4,6 +4,8 @@ var {
 	report
 } = require(__dirname + "/../src/assertivity.js").generate();
 
+report.into("Assertivity > It (particle)");
+
 report.into("Assertivity > Positives");
 report.into(" > it.is").that(20).is(20);
 report.into(" > it.is.true").that(2 == 2).is.true();
@@ -110,5 +112,4 @@ console.log = function(a) {
 };
 report.into(" > labels").as("eighteen").that.it(80).is.number();
 report.into(" > labels").that.it(dataTemp[0]).is("eighteen");
-
-require("fs").writeFileSync("example.json", JSON.stringify(report(), null, 4), "utf-8");
+require("fs").writeFileSync("tests.json", JSON.stringify(report(), null, 4), "utf-8");
