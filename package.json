@@ -19,7 +19,7 @@
     "rimraf": "^2.6.2"
   },
   "bin": {
-    "assertivity": "assertivity.cli.js"
+    
   },
   "dependencies": {},
   "repository": {
