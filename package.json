@@ -1,6 +1,6 @@
 {
   "name": "assertivity",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Natural approach to JavaScript asserting and testing.",
   "main": "src/assertivity.js",
   "directories": {
