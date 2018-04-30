@@ -57,7 +57,7 @@ report.into(" > it.is.not").that(20).is.not(2);
 report.into(" > it.is.not.true").that(false).is.not.true();
 report.into(" > it.is.not.truthy").that(0).is.not.truthy();
 report.into(" > it.is.not.false").that(true).is.not.false();
-report.into(" > it.is.not.falsy").that(0).is.not.falsy();
+report.into(" > it.is.not.falsy").that(1).is.not.falsy();
 report.into(" > it.is.not.equal.to").that(0).is.not.equal.to("0");
 report.into(" > it.is.not.similar.to").that(0).is.not.similar.to(1);
 report.into(" > it.is.not.like").that(0).is.not.like(1);
@@ -78,9 +78,9 @@ report.into(" > it.is.not.array").that(0).is.not.array();
 report.into(" > it.is.not.object").that(0).is.not.object();
 report.into(" > it.is.not.instance.of").that(0).is.not.instance.of(Date);
 report.into(" > it.is.not.more.than").that(0).is.not.more.than(0);
-report.into(" > it.is.not.more.or.equal.to").that(0).is.not.more.or.equal.to(0);
+report.into(" > it.is.not.more.or.equal.to").that(0).is.not.more.or.equal.to(1);
 report.into(" > it.is.not.less.than").that(0).is.not.less.than(0);
-report.into(" > it.is.not.less.or.equal.to").that(0).is.not.less.or.equal.to(0);
+report.into(" > it.is.not.less.or.equal.to").that(1).is.not.less.or.equal.to(0);
 report.into(" > it.is.not.empty > for strings").that("0").is.not.empty();
 report.into(" > it.is.not.empty > for arrays").that([0]).is.not.empty();
 report.into(" > it.is.not.empty > for objects").that({
@@ -111,5 +111,6 @@ console.log = function(a) {
 	dataTemp.push(a);
 };
 report.into(" > labels").as("eighteen").that.it(80).is.number();
-report.into(" > labels").that.it(dataTemp[0]).is("eighteen");
+console.log(dataTemp[0]);
+report.into(" > labels").that.it(dataTemp[0]).has("eighteen");
 require("fs").writeFileSync("tests.json", JSON.stringify(report(), null, 4), "utf-8");
